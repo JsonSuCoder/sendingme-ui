@@ -1,0 +1,58 @@
+{
+  "name": "sendingme-ui",
+  "version": "0.0.1",
+  "description": "sendingme-ui react library",
+  "author": "shgli' <clownfish@hiseas.im>",
+  "homepage": "https://github.com/Aquaverse/hiseas-react#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "registry": "https://repo.sending.me/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aquaverse/hiseas-react.git"
+  },
+  "scripts": {
+    "example": "cross-env APP_ROOT=example umi dev",
+    "start": "tsdx watch",
+    "prepublish": "npm run build",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "bugs": {
+    "url": "https://github.com/Aquaverse/hiseas-react/issues"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "lodash-es": "^4.17.21",
+    "react": "17",
+    "react-apexcharts": "^1.4.0",
+    "react-dom": "17.x",
+    "react-wordcloud": "^1.2.7"
+  },
+  "devDependencies": {
+    "@rollup/plugin-image": "^2.1.1",
+    "@sixian/css-url": "^1.0.3",
+    "@svgr/rollup": "^6.3.1",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react": "17",
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.14",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "tsdx": "^0.14.1",
+    "umi": "3"
+  }
+}

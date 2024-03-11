@@ -1,0 +1,84 @@
+.sd-btn {
+    --sd-button-font-weight: 400;
+    --sd-button-default-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+    --sd-button-content-font-size: 14px;
+    --sd-button-content-font-size-sm: 14px;
+    --sd-button-content-font-size-lg: 16px;
+    --sd-button-border-radius: 22px;
+    --sd-button-border-radius-sm: 32px;
+    --sd-button-border-radius-lg: 40px;
+    --sd-button-padding-inline: 20px;
+    --sd-button-padding-inline-sm: 14px;
+    --sd-button-padding-inline-lg: 20px;
+    --sd-button-padding-block: 4px;
+    --sd-button-padding-block-sm: 0px;
+    --sd-button-padding-block-lg: 7px;
+    --sd-motion-duration: 0.2s;
+    --sd-motion-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+    --sd-button-content-line-height: 1.5714285714285714;
+    --sd-button-content-line-height-sm: 1.5714285714285714;
+    --sd-button-content-line-height-lg: 1.5;
+    --sd-button-color-primary: #ffffff;
+
+}
+
+
+.sd-btn>span {
+    display: inline-block;
+}
+
+.sd-btn {
+    outline: none;
+    position: relative;
+    display: inline-block;
+    font-weight: var(--sd-button-font-weight);
+    white-space: nowrap;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(-sd-motion-duration) var(--sd-motion-ease-in-out);
+    user-select: none;
+    touch-action: manipulation;
+    color: var(--colorBgBase);
+    line-height: var(--sd-button-content-line-height);
+    border-radius: var(--sd-button-border-radius);
+    font-size: var(--sd-button-content-font-size);
+    padding: var(--sd-button-padding-block) var(--sd-button-padding-inline);
+    box-shadow: var(--sd-button-default-shadow);
+
+    &.sd-btn-disabled {
+        cursor: not-allowed;
+    }
+}
+
+
+.sd-btn.sd-btn-sm {
+    font-size: var(--sd-button-content-font-size-sm);
+    line-height: var(--sd-button-content-line-height-sm);
+    padding: var(--sd-button-padding-block-sm) var(--sd-button-padding-inline-sm);
+}
+
+.sd-btn.sd-btn-lg {
+    font-size: var(--sd-button-content-font-size-lg);
+    line-height: var(--sd-button-content-line-height-lg);
+    padding: var(--sd-button-padding-block-lg) var(--sd-button-padding-inline-lg);
+}
+
+.sd-btn-primary {
+    color: var(--sd-button-color-primary);
+    background-color: var(--primary-color);
+
+    &:not(.sd-btn-disabled):active {
+        background-color: var(--primary-color-active);
+    }
+
+    &.sd-btn-disabled {
+        opacity: 0.4;
+    }
+}
+
+.sd-btn-default {
+    border-color: var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+}
