@@ -1,6 +1,6 @@
 {
   "name": "sendingme-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "sendingme-ui react library",
   "author": "sujunjie' <jsunsu@sending.tech>",
   "homepage": "https://github.com/Aquaverse/hiseas-react#readme",
@@ -44,15 +44,11 @@
     "cross-env": "^7.0.3",
     "install-peers": "^1.0.4",
     "postcss": "^8.4.14",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "17",
+    "react-dom": "17.x",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.53.0",
     "sass-loader": "^13.0.2",
     "tsdx": "^0.14.1"
-  },
-  "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0"
   }
 }
