@@ -9,19 +9,19 @@ export interface IconProps {
     color?: string; // only for two-tone
 }
 
-export const SdIcon = (props:IconProps) => {
+export const SdIcon = (props: IconProps) => {
     const { icon, className, style, color } = props;
-    console.log(icon,"------icon")
-    console.log(className)
     const classes = classNames({
-        className: true,
+        [`${className}`]: className,
         "sd-icon": true
     })
     const IconSvg = (SdSvgIcon as any)[icon];
     return (
-        <span role="img" aria-label={icon} className={classes} style={style} color={color}>
-            {<IconSvg />}
-        </span>
+        <>
+            {IconSvg ? <span role="img" aria-label={icon} className={classes} style={style} color={color}>
+                {<IconSvg />}
+            </span> : null}
+        </>
     )
 }
 export default SdIcon;

@@ -2,14 +2,14 @@ import { ButtonType, SizeType, spaceChildren } from "./buttonHelpers";
 import React from "react";
 import classNames from 'classnames';
 import "./button.scss";
-import SdIcon from "../Icon";
+import { SdIcon } from "../Icon/icon";
 type MergedHTMLAttributes = Omit<
     React.HTMLAttributes<HTMLElement> &
     React.ButtonHTMLAttributes<HTMLElement> &
     React.AnchorHTMLAttributes<HTMLElement>,
     'type'
 >;
-export interface BaseButtonProps extends MergedHTMLAttributes {
+export interface BaseButtonProps {
     type?: ButtonType;
     icon?: string;
     size?: SizeType;
@@ -21,12 +21,14 @@ export interface BaseButtonProps extends MergedHTMLAttributes {
     children?: React.ReactNode;
     classNames?: { icon: string };
     styles?: React.CSSProperties;
+}
+export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
     href?: string;
 }
 
 const prefixCls = "sd-btn";
 
-export const SdButton = (props: BaseButtonProps) => {
+export const SdButton = (props: ButtonProps) => {
     const { size, loading, danger, icon, styles, disabled, type = "primary", children } = props;
     const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
     const sizeCls = size ? sizeClassNameMap[size] : undefined;
@@ -43,22 +45,13 @@ export const SdButton = (props: BaseButtonProps) => {
     );
     const handleClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>) => {
         const { onClick } = props;
-        // FIXME: https://github.com/ant-design/ant-design/issues/30207
         if (loading || disabled) {
             e.preventDefault();
             return;
         }
         (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
     };
-
-    const iconNode = () => {
-        if (icon && !loading) {
-            return <SdIcon icon={icon}></SdIcon>;
-        } else if (loading) {
-            return <SdIcon icon="Loading"></SdIcon>;
-        }
-        return null;
-    }
+    const iconNode = loading ? <SdIcon icon="Loading" className={`${prefixCls}-icon`}></SdIcon> : icon ? <SdIcon icon={icon} className={`${prefixCls}-icon`}></SdIcon> : null;
     const child = spaceChildren(children);
     let buttonNode = (
         <button
@@ -67,7 +60,6 @@ export const SdButton = (props: BaseButtonProps) => {
             onClick={handleClick}
             disabled={disabled}
         >
-
             {iconNode}
             {child}
         </button>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
+const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text', 'associate', 'danger', 'warning', 'success'] as const;
 export type ButtonType = typeof ButtonTypes[number];
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
@@ -19,7 +19,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number) {
     }
 
     if (isString(child)) {
-        return  <span>{child}</span>;
+        return <span>{child}</span>;
     }
 
     return child;
