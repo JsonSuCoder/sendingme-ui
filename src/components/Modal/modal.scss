@@ -1,0 +1,100 @@
+.sd-modal-root{
+    --sd-modal-color-bg-mask: rgba(0, 0, 0, 0.45);
+    --sd-modal-z-index-base: 10000;
+    --sd-modal-header-font-size: 18px;
+    --sd-modal-content-font-size: 14px;
+    --sd-modal-footer-font-size: 16px;
+    --sd-modal-line-height: 1.5714285714285714;
+}
+
+.sd-modal-root .sd-modal-wrap {
+    position: fixed;
+    inset: 0;
+    z-index: var(--sd-modal-z-index-base);
+    overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sd-modal-root .sd-modal-mask {
+    position: fixed;
+    inset: 0;
+    z-index: var(--sd-modal-z-index-base);
+    height: 100%;
+    background-color: var(--sd-modal-color-bg-mask);
+    pointer-events: none;
+}
+
+.sd-modal {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    color: var(--colorBgBase);
+    font-size: 18px;
+    list-style: none;
+    pointer-events: none;
+    position: relative;
+    top: 100px;
+    width: auto;
+    max-width: 100%;
+    width: 520px;
+}
+
+.sd-modal .sd-modal-content {
+    position: relative;
+    background-color: var(--sd-dialog-bg-color);
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 20px;
+    pointer-events: auto;
+    padding: 25px;
+}
+
+.sd-modal .sd-modal-header {
+    color: var(--colorBgBase);
+    font-size: var(--sd-modal-header-font-size);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.sd-modal .sd-modal-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 18px;
+    z-index: calc(var(--sd-modal-z-index-base) + 10);
+    padding: 0;
+    color: var(--colorBgBase);
+    font-weight: 400;
+    line-height: 1;
+    text-decoration: none;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.sd-modal .sd-modal-footer {
+    text-align: end;
+    margin-top: 8px;
+    font-size: var(--sd-modal-footer-font-size);
+    font-weight: 600;
+}
+
+.sd-modal .sd-modal-body {
+    font-size: var(--sd-modal-content-font-size);
+    line-height: var(--sd-modal-line-height);
+    word-wrap: break-word;
+    font-weight: 400;
+    min-height: 40px;
+}
+
+.sd-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sd-modal-footer>.sd-btn+.sd-btn {
+    margin-inline-start: 11px;
+}

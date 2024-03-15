@@ -21,9 +21,10 @@ export interface ModalProps extends ModalCommonProps {
     /** Whether a close (x) button is visible on top right of the modal dialog or not. Recommend to use closeIcon instead. */
     closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
     /** Specify a function that will be called when a user clicks the OK button */
-    onOk?: (e: React.SyntheticEvent<Element, Event>) => void;
+    onOk?: (close?: () => void) => void;
     /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-    onCancel?: (e: React.SyntheticEvent<Element, Event>) => void;
+    onCancel?: () => void;
+    showCancel?:boolean;
     afterClose?: () => void;
     /** Callback when the animation ends when Modal is turned on and off */
     afterOpenChange?: (open: boolean) => void;
@@ -67,8 +68,13 @@ export interface ModalProps extends ModalCommonProps {
     modalRender?: (node: React.ReactNode) => React.ReactNode;
     focusTriggerAfterClose?: boolean;
     children?: React.ReactNode;
+    type?: "createDialog";
 }
 
 type getContainerFunc = () => HTMLElement;
+
+export type ModalFunc = (props: ModalProps) => void;
+
+export type ModalStaticFunctions = Record<NonNullable<ModalProps["type"]>, ModalFunc>;
 
 

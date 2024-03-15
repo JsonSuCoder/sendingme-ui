@@ -51,7 +51,7 @@ export const SdButton = (props: ButtonProps) => {
         }
         (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
     };
-    const iconNode = loading ? <SdIcon icon="Loading" className={`${prefixCls}-icon`}></SdIcon> : icon ? <SdIcon icon={icon} className={`${prefixCls}-icon`}></SdIcon> : null;
+    const iconNode = icon ? <SdIcon icon={icon} className={`${prefixCls}-icon`}></SdIcon> : null;
     const child = spaceChildren(children);
     let buttonNode = (
         <button
@@ -62,6 +62,7 @@ export const SdButton = (props: ButtonProps) => {
         >
             {iconNode}
             {child}
+            {loading ? <SdIcon icon="MoreOutlines" className={`${prefixCls}-icon`}></SdIcon> : null}
         </button>
     );
     return buttonNode;

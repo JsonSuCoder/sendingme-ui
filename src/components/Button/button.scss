@@ -62,6 +62,7 @@
 
     &.sd-btn-disabled {
         cursor: not-allowed;
+        opacity: 0.8;
     }
 
     &:hover {
@@ -94,10 +95,6 @@
 
     &:not(.sd-btn-disabled):active {
         background-color: var(--primary-color-active);
-    }
-
-    &.sd-btn-disabled {
-        opacity: 0.4;
     }
 }
 

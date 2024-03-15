@@ -12,6 +12,7 @@ export function renderCloseIcon() {
 interface FooterProps {
     onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+    showCancel?:boolean
 }
 
 export const Footer: React.FC<
@@ -36,6 +37,7 @@ export const Footer: React.FC<
         confirmLoading,
         onOk,
         onCancel,
+        showCancel = true,
         okButtonProps,
         cancelButtonProps,
     } = props;
@@ -45,9 +47,9 @@ export const Footer: React.FC<
     const cancelTextLocale = cancelText || "Cancel";
 
     return (
-        <div className='sd-modal-footer'>
-            <SdButton onClick={onCancel} type={cancelType} {...okButtonProps}>{cancelTextLocale}</SdButton>
-            <SdButton onClick={onOk} type={okType} loading={confirmLoading} {...cancelButtonProps}>{okTextLocale}</SdButton>
-        </div>
+        <>
+            {showCancel ? <SdButton onClick={onCancel} size='large' type={cancelType} {...cancelButtonProps}>{cancelTextLocale}</SdButton> : null}
+            <SdButton onClick={onOk} size='large' type={okType} loading={confirmLoading} {...okButtonProps}>{okTextLocale}</SdButton>
+        </>
     )
 };
