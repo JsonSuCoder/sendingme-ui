@@ -1,4 +1,4 @@
-import type { FC } from 'react';
+import type { FC, ReactElement } from 'react';
 import type { DialogProps } from 'rc-dialog';
 
 import type { ButtonProps } from '../Button/button';
@@ -24,7 +24,7 @@ export interface ModalProps extends ModalCommonProps {
     onOk?: (close?: () => void) => void;
     /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
     onCancel?: () => void;
-    showCancel?:boolean;
+    showCancel?: boolean;
     afterClose?: () => void;
     /** Callback when the animation ends when Modal is turned on and off */
     afterOpenChange?: (open: boolean) => void;
@@ -68,12 +68,14 @@ export interface ModalProps extends ModalCommonProps {
     modalRender?: (node: React.ReactNode) => React.ReactNode;
     focusTriggerAfterClose?: boolean;
     children?: React.ReactNode;
-    type?: "createDialog";
+    type?: "createDialog" | "showDialog";
 }
 
 type getContainerFunc = () => HTMLElement;
 
-export type ModalFunc = (props: ModalProps) => void;
+export type ModalFuncProps = ModalProps | ReactElement;
+
+export type ModalFunc = (props: ModalFuncProps) => void;
 
 export type ModalStaticFunctions = Record<NonNullable<ModalProps["type"]>, ModalFunc>;
 
