@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import { ModalFuncProps } from "./interface";
 import CreatDialogWrapper from "./CreatDialog";
+import { ModalProps } from "./interface";
 
-export function createDialog(config: ModalFuncProps) {
+export function createDialog(config: ModalProps) {
     const container = document.createDocumentFragment();
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     let currentConfig = { ...config, close, open: true } as any;
@@ -26,20 +26,6 @@ export function createDialog(config: ModalFuncProps) {
     }
 
     render(currentConfig);
-    return {
-        close: close
-    }
-}
-
-export function showDialog(dialog: ModalFuncProps) {
-    const container = document.createDocumentFragment();
-    reactRender(
-        dialog as ReactElement,
-        container,
-    );
-    function close() {
-        reactUnmount(container);
-    }
     return {
         close: close
     }

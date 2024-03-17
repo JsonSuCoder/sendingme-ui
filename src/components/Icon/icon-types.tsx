@@ -46,9 +46,15 @@ import { ReactComponent as MoreOutlines } from "../../assets/icons-svg/MoreOutli
 import { ReactComponent as ModeOutlines } from "../../assets/icons-svg/ModeOutlines.svg";
 import { ReactComponent as GroupmembersOutlines } from "../../assets/icons-svg/GroupmembersOutlines.svg";
 import { ReactComponent as CodeOutlines } from "../../assets/icons-svg/CodeOutlines.svg";
+import { ReactComponent as BackOutlines } from "../../assets/icons-svg/BackOutlines.svg";
+import { ReactComponent as InviteOutlines } from "../../assets/icons-svg/InviteOutlines.svg";
+import { ReactComponent as RightOutlines } from "../../assets/icons-svg/RightOutlines.svg";
 
 
 export {
+    RightOutlines,
+    BackOutlines,
+    InviteOutlines,
     CodeOutlines,
     GroupmembersOutlines,
     ModeOutlines,

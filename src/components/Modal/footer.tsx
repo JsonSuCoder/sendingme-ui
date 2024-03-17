@@ -12,7 +12,7 @@ export function renderCloseIcon() {
 interface FooterProps {
     onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
     onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-    showCancel?:boolean
+    showCancel?: boolean
 }
 
 export const Footer: React.FC<
@@ -45,7 +45,6 @@ export const Footer: React.FC<
     // ================== Locale Text ==================
     const okTextLocale = okText || "Confirm";
     const cancelTextLocale = cancelText || "Cancel";
-
     return (
         <>
             {showCancel ? <SdButton onClick={onCancel} size='large' type={cancelType} {...cancelButtonProps}>{cancelTextLocale}</SdButton> : null}

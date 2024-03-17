@@ -73,9 +73,10 @@ export interface ModalProps extends ModalCommonProps {
 
 type getContainerFunc = () => HTMLElement;
 
-export type ModalFuncProps = ModalProps | ReactElement;
 
-export type ModalFunc = (props: ModalFuncProps) => void;
+export type ModalFunc = (props: ModalProps) => {
+    close: () => void;
+};
 
 export type ModalStaticFunctions = Record<NonNullable<ModalProps["type"]>, ModalFunc>;
 
