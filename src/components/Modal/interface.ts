@@ -23,7 +23,7 @@ export interface ModalProps extends ModalCommonProps {
     /** Specify a function that will be called when a user clicks the OK button */
     onOk?: (close?: () => void) => void;
     /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-    onCancel?: () => void;
+    onCancel?: (opts?: any) => void;
     showCancel?: boolean;
     afterClose?: () => void;
     /** Callback when the animation ends when Modal is turned on and off */
