@@ -1,5 +1,5 @@
 import { ButtonType, SizeType, spaceChildren } from "./buttonHelpers";
-import React from "react";
+import React, { forwardRef } from "react";
 import classNames from 'classnames';
 import "./button.scss";
 import { SdIcon } from "../Icon/icon";
@@ -25,11 +25,16 @@ export interface BaseButtonProps {
 export interface ButtonProps extends BaseButtonProps, MergedHTMLAttributes {
     href?: string;
 }
-
+type CompoundedComponent = React.ForwardRefExoticComponent<
+    ButtonProps & React.RefAttributes<HTMLElement>
+>;
 const prefixCls = "sd-btn";
 
-export const SdButton = (props: ButtonProps) => {
-    const { size, loading, danger, icon, styles, disabled, type = "primary", children } = props;
+export const InternalButton: React.ForwardRefRenderFunction<
+    HTMLButtonElement | HTMLAnchorElement,
+    ButtonProps
+> = (props: ButtonProps) => {
+    const { size, loading, danger, icon, styles, disabled, type = "primary", children, ...restProps } = props;
     const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
     const sizeCls = size ? sizeClassNameMap[size] : undefined;
     const classes = classNames(
@@ -55,6 +60,7 @@ export const SdButton = (props: ButtonProps) => {
     const child = spaceChildren(children);
     let buttonNode = (
         <button
+            {...restProps}
             className={classes}
             style={styles}
             onClick={handleClick}
@@ -67,5 +73,8 @@ export const SdButton = (props: ButtonProps) => {
     );
     return buttonNode;
 }
+const SdButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+    InternalButton,
+) as CompoundedComponent;
 
 export default SdButton;
